@@ -12,7 +12,7 @@
     @apply text-lg;
   }
   a {
-    @apply text-green-600 underline cursor-pointer;
+    @apply text-green-600  cursor-pointer  no-underline;
   }
 }
 

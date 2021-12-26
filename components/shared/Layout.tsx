@@ -5,7 +5,7 @@ import react, { useState, useEffect } from 'react';
 import { Header } from '@/components/shared/Header';
 
 interface Props {
-  children?: JSX.Element;
+  children?: JSX.Element | JSX.Element[] | string;
   title: string;
 }
 // Website layout basic components
