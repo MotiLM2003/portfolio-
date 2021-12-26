@@ -10,7 +10,6 @@ interface Props {
 }
 // Website layout basic components
 export const Layout: React.FC<Props> = ({ children, title }) => {
-  console.log(children);
   return (
     <React.Fragment>
       {/* SEO */}
