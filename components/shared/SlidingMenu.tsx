@@ -1,3 +1,4 @@
+import { useGetElementPropries } from 'hooks/useGetElementPropries';
 import react, { useState, useEffect, useRef } from 'react';
 
 interface Props {
@@ -25,24 +26,39 @@ export const SlidingMenu: React.FC<Props> = ({
   borderWidth = 1,
   borderColor = '#65a30d',
 }) => {
-  const [selectedMenu, setSelectedMenu] = useState(null);
+  const [selectedMenu, setSelectedMenu] = useState<HTMLElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const selectedRef = useRef<HTMLDivElement | null>(null);
+  const [intWidth] = useGetElementPropries(selectedMenu);
+  useEffect(() => {
+    const item = selectedRef.current;
+    if (item) {
+      item.style.width = `${intWidth}px`;
+      console.log('width', intWidth);
+    }
+  }, [selectedMenu, intWidth]);
 
   const callbackAddEventListenr = (li: HTMLElement) => {
     const item = selectedRef.current;
     const width = li.offsetWidth + 10;
     const left = li.offsetLeft - 5;
     if (item) {
-      item.style.width = `${width}px`;
+      setSelectedMenu(li);
+
+      item.style.width = `${intWidth}px`;
       item.style.left = `${left}px`;
     }
   };
 
   useEffect(() => {
+    console.log('use width:', intWidth);
+  }, [intWidth]);
+  useEffect(() => {
     const selectedItem = selectedRef.current;
     const menuItems = containerRef.current?.children[0];
+
     if (selectedItem) {
+      setSelectedMenu(selectedItem);
       selectedItem.style.borderColor = borderColor;
       selectedItem.style.borderBottomWidth = `${borderWidth}px`;
       selectedItem.style.borderTopWidth = `${borderWidth}px`;

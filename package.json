@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start-pc": "set PORT=3001&& next start",
+    "start-prod": "set PORT=3001&& next start",
     "start": "next start",
     "lint": "next lint"
   },
