@@ -29,30 +29,30 @@ export const SlidingMenu: React.FC<Props> = ({
   const [selectedMenu, setSelectedMenu] = useState<HTMLElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const selectedRef = useRef<HTMLDivElement | null>(null);
-  const [intWidth] = useGetElementPropries(selectedMenu);
+  const [intWidth, strWidthPX, intLeft, strLeft] = useGetElementPropries(
+    selectedMenu,
+    10,
+    -5
+  );
   useEffect(() => {
     const item = selectedRef.current;
-    if (item) {
-      item.style.width = `${intWidth}px`;
-      console.log('width', intWidth);
+    if (item && strWidthPX) {
+      item.style.width = strWidthPX as string;
+      item.style.left = strLeft as string;
+      console.log('left', strLeft);
     }
-  }, [selectedMenu, intWidth]);
+  }, [selectedMenu, intWidth, strWidthPX, intLeft, strLeft]);
 
   const callbackAddEventListenr = (li: HTMLElement) => {
     const item = selectedRef.current;
-    const width = li.offsetWidth + 10;
-    const left = li.offsetLeft - 5;
+    const left = li.offsetLeft + 5;
     if (item) {
       setSelectedMenu(li);
 
-      item.style.width = `${intWidth}px`;
-      item.style.left = `${left}px`;
+      //   item.style.left = `${left}px`;
     }
   };
 
-  useEffect(() => {
-    console.log('use width:', intWidth);
-  }, [intWidth]);
   useEffect(() => {
     const selectedItem = selectedRef.current;
     const menuItems = containerRef.current?.children[0];
