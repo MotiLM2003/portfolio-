@@ -14,6 +14,10 @@
   a {
     @apply text-green-600  cursor-pointer  no-underline;
   }
+
+  .image-gallery {
+    @apply border  rounded cursor-pointer border-red-400  border-solid;
+  }
 }
 
 @tailwind components;

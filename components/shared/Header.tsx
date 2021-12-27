@@ -8,7 +8,7 @@ export const Header: React.FC<Props> = () => {
     <header className='p-[0.3rem] sm:p-3 shadow-md   h-14 md:h-20 flex items-center'>
       <div className='flex  justify-between w-full'>
         <SlidingMenu borderWidth={3}>
-          <ul className='flex items-center gap-12 pr-10'>
+          <ul className='flex items-center gap-12 pr-10 text-xs sm:text-base'>
             <li className='sm-item'>
               <Link href='#'>לראשי</Link>
             </li>
@@ -20,7 +20,7 @@ export const Header: React.FC<Props> = () => {
             </li>
           </ul>
         </SlidingMenu>
-        <div>other menu</div>
+        <div className='hidden sm:block'>other menu</div>
       </div>
     </header>
   );

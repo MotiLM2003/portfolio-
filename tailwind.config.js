@@ -15,6 +15,9 @@ module.exports = {
         '2xl': '2rem',
       },
     },
+    blur: {
+      sm: '1.4px',
+    },
   },
   plugins: [],
 };

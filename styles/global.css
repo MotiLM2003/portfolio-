@@ -3,3 +3,11 @@ body {
   font-size: 1rem;
   direction: rtl;
 }
+
+.image-gallery img {
+  filter: blur(2px);
+}
+
+.image-gallery img:hover {
+  filter: blur(0px);
+}
