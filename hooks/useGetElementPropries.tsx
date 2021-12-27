@@ -12,12 +12,16 @@ export const useGetElementPropries = (
 
   useEffect(() => {
     if (item) {
-      setIntWidth(item.offsetWidth);
-      setIntLeft(item.offsetLeft);
-      setStrWidthPX(`${item.offsetWidth + widthOffset}px`);
-      setStrLeft(`${item.offsetLeft + leftOffset}px`);
+      const width = item.offsetWidth + widthOffset;
+      const left = item.offsetLeft + leftOffset;
+      setIntWidth(width);
+      setIntLeft(left);
+
+      setStrWidthPX(`${width}px`);
+      setStrLeft(`${left}px`);
+      console.log('here');
     }
-    console.log('element', item, 'width:', strWidthPX);
-  }, [item, strWidthPX, intLeft]);
-  return [intWidth + widthOffset, strWidthPX, intLeft, strLeft];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [item]);
+  return [intWidth, strWidthPX, intLeft, strLeft];
 };

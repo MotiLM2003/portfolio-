@@ -6,7 +6,7 @@ import Link from 'next/link';
 const Home: NextPage = () => {
   return (
     <Layout title='My home page'>
-      <div>מה קורה אנשים</div>
+      <main className='container pt-5'>תוכן</main>
     </Layout>
   );
 };

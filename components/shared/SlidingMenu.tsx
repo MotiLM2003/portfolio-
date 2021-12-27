@@ -39,17 +39,13 @@ export const SlidingMenu: React.FC<Props> = ({
     if (item && strWidthPX) {
       item.style.width = strWidthPX as string;
       item.style.left = strLeft as string;
-      console.log('left', strLeft);
     }
   }, [selectedMenu, intWidth, strWidthPX, intLeft, strLeft]);
 
   const callbackAddEventListenr = (li: HTMLElement) => {
     const item = selectedRef.current;
-    const left = li.offsetLeft + 5;
     if (item) {
       setSelectedMenu(li);
-
-      //   item.style.left = `${left}px`;
     }
   };
 
@@ -62,9 +58,8 @@ export const SlidingMenu: React.FC<Props> = ({
       selectedItem.style.borderColor = borderColor;
       selectedItem.style.borderBottomWidth = `${borderWidth}px`;
       selectedItem.style.borderTopWidth = `${borderWidth}px`;
-      console.log('here', borderWidth);
+
       if (menuItems) {
-        console.log('menu', menuItems);
         callbackAddEventListenr(menuItems.children[0] as HTMLElement);
       }
     }
@@ -80,12 +75,12 @@ export const SlidingMenu: React.FC<Props> = ({
     return () => {
       loopOverItems(menuItems, callbackAddEventListenr);
     };
-  }, []);
+  }, [borderColor, borderWidth]);
 
   return (
     <div className='sliding-menu' ref={containerRef}>
       {children && children}
-      <div className='selected-item' ref={selectedRef}>
+      <div className='selected-item ' ref={selectedRef}>
         &nbsp;
       </div>
       <div></div>
