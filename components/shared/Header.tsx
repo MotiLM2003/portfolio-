@@ -1,5 +1,13 @@
 import react, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import {
+  Link,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller,
+} from 'react-scroll';
+
 import { SlidingMenu } from './SlidingMenu';
 interface Props {}
 
@@ -10,10 +18,30 @@ export const Header: React.FC<Props> = () => {
         <SlidingMenu borderWidth={3}>
           <ul className='flex items-center gap-12 pr-10 text-xs sm:text-base'>
             <li className='sm-item'>
-              <Link href='#'>לראשי</Link>
+              <Link
+                activeClass='active'
+                className='test1'
+                to='test1'
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-100}
+              >
+                לראשי
+              </Link>
             </li>
             <li className='sm-item'>
-              <Link href='#'>גלריית עבודות</Link>
+              <Link
+                activeClass='active'
+                className='test1'
+                to='test2'
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-100}
+              >
+                גלריית עבודות
+              </Link>
             </li>
             <li className='sm-item'>
               <Link href='#'>אודות</Link>

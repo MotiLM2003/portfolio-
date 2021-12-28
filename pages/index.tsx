@@ -6,7 +6,6 @@ import { Hero } from '@/components/Hero';
 import { images } from '../utils/data';
 import {
   Link,
-  DirectLink,
   Element,
   Events,
   animateScroll as scroll,
