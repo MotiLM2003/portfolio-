@@ -18,6 +18,9 @@ export const Header: React.FC<Props> = () => {
             <li className='sm-item'>
               <Link href='#'>אודות</Link>
             </li>
+            <li className='sm-item'>
+              <Link href='#'>צור קשר</Link>
+            </li>
           </ul>
         </SlidingMenu>
         <div className='hidden sm:block'>other menu</div>
