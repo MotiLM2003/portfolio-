@@ -19,7 +19,6 @@ export const useGetElementPropries = (
 
       setStrWidthPX(`${width}px`);
       setStrLeft(`${left}px`);
-      console.log('here');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [item]);

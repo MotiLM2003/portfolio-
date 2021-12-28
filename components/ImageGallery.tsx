@@ -8,7 +8,6 @@ interface Props {
 }
 
 export const ImageGallery: React.FC<Props> = ({ images }) => {
-  console.log('pprops', images);
   return (
     <section className='grid grid-cols-1 md:grid-cols-2  xl:grid-cols-2 2xl:grid-cols-3 gap-3'>
       {images.map((image, index) => (

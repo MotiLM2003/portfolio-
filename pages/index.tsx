@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
 import { Layout } from '@/components/shared/Layout';
 import { ImageGallery } from '@/components/ImageGallery';
@@ -17,35 +17,33 @@ interface Props {
   images: [{ url: string; image: string; alt: string }];
 }
 const Home: NextPage<Props> = ({ images }) => {
-  console.log('iMAGES', images);
+  useEffect(() => {
+    Events.scrollEvent.register('begin', function (to, element) {
+      // console.log('begin', to, element);
+    });
+    Events.scrollEvent.register('end', () => {
+      // console.log('end');
+    });
+    return () => {
+      Events.scrollEvent.remove('begin');
+      Events.scrollEvent.remove('end');
+    };
+  }, []);
+
   return (
     <Layout title='My home page'>
-      <Link
-        activeClass='active'
-        className='test1'
-        to='test1'
-        spy={true}
-        smooth={true}
-        duration={500}
-      >
-        Test 1
-      </Link>
-      <Link
-        activeClass='active'
-        className='test1'
-        to='test2'
-        spy={true}
-        smooth={true}
-        duration={500}
-      >
-        Test 1
-      </Link>
       <main className='container pt-5'>
-        <Element name='test1' className='element'>
+        <Element name='section-1' className='element'>
           <Hero />
         </Element>
-        <Element name='test2' className='element'>
+        <Element name='section-2' className='element'>
           <ImageGallery images={images} />
+        </Element>
+        <Element name='section-3' className='element'>
+          <Hero />
+        </Element>
+        <Element name='section-4' className='element'>
+          <Hero />
         </Element>
       </main>
     </Layout>

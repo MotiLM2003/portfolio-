@@ -16,12 +16,12 @@ export const Header: React.FC<Props> = () => {
     <header className='p-[0.3rem] sm:p-3 shadow-md   h-14 md:h-20 flex items-center bg-white sticky top-0 z-10'>
       <div className='flex  justify-between w-full'>
         <SlidingMenu borderWidth={3}>
-          <ul className='flex items-center gap-12 pr-10 text-xs sm:text-base'>
+          <ul className='flex items-center gap-5 md:gap-12 pr-10 text-xs sm:text-base'>
             <li className='sm-item'>
               <Link
                 activeClass='active'
                 className='test1'
-                to='test1'
+                to='section-1'
                 spy={true}
                 smooth={true}
                 duration={500}
@@ -34,7 +34,7 @@ export const Header: React.FC<Props> = () => {
               <Link
                 activeClass='active'
                 className='test1'
-                to='test2'
+                to='section-2'
                 spy={true}
                 smooth={true}
                 duration={500}
@@ -43,11 +43,33 @@ export const Header: React.FC<Props> = () => {
                 גלריית עבודות
               </Link>
             </li>
+
             <li className='sm-item'>
-              <Link href='#'>אודות</Link>
+              <Link
+                activeClass='active'
+                className='test1'
+                to='section-3'
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-100}
+              >
+                קצת עלי
+              </Link>
             </li>
+
             <li className='sm-item'>
-              <Link href='#'>צור קשר</Link>
+              <Link
+                activeClass='active'
+                className='test1'
+                to='section-4'
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-100}
+              >
+                צור קשר
+              </Link>
             </li>
           </ul>
         </SlidingMenu>
